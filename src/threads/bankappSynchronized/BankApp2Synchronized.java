@@ -1,23 +1,36 @@
-package threads.bankapp4;
-// BankApp2 - Liveprogramming.
-// Demo af klasser, objekter, constructor, toString, ArrayList,LocalDate
-// Demo af static
-// Bjørn Christensen, 11/9-2020
+package threads.bankappSynchronized;
+// BankApp2 - Synchronized.
+// Demo af Race conditions
+// Bjørn Christensen, 26/1-2025
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class BankApp2 {
-	public static void main(String[] args) {
+public class BankApp2Synchronized {
+	public static void main(String[] args) throws  InterruptedException {
 		Account a1=new Account("Joe Pass", 1.5);
-		Account a2=new Account("Jimmy Hendrix", 1.5);
-		System.out.println(a1);
-		System.out.println(a2);
-		a1.deposit(100);
-		a1.deposit(50);
-		a1.withdraw(25);
+		Customer Tom=new Customer(a1);
+		Customer Jerry=new Customer(a1);
+		Tom.start();
+		Jerry.start();
+
+		// Wait for Tom and Jerry to finish
+		Tom.join();
+		Jerry.join();;
+
 		a1.printTransactions();
-		a2.printTransactions();
+	}
+}
+
+class Customer extends Thread {
+	Account account;
+	Customer(Account account) {
+		this.account=account;
+	}
+	public void run(){
+		account.deposit(1000);
+		account.withdraw(10);
+		account.deposit(1000);
 	}
 }
 
@@ -28,13 +41,6 @@ class Account {
 	double interestRate;	// rente i %
 	ArrayList<Transaction> transactions=new ArrayList<Transaction>(); 
 	private static int noOfAccounts=0;
-	
-//	BankApp.Account(String ow, double rate, int aNo){
-//		owner=ow;
-//		interestRate=rate;
-//		accountNo=aNo;
-//		balance=0;
-//	}
 
 	Account(String ow, double rate){
 		noOfAccounts++;
@@ -44,11 +50,13 @@ class Account {
 		balance=0;
 	}
 
+	synchronized
 	void deposit(double amount) {
 		balance=balance+amount;
 		transactions.add(new Transaction("Indsat", amount, balance) );
 	}
 
+	synchronized
 	void withdraw(double amount) {
 		balance=balance-amount;
 		transactions.add(new Transaction("Hævet", -amount, balance) );

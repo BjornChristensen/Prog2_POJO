@@ -1,7 +1,7 @@
 // Exercise: MyLinkedlist (Patrick)
 // Bjørn 28/12 2024
 
-package threads.myLinkedList;
+package threads.procucerConsumer;
 
 public class MyLinkedList {
     Node head=null;
@@ -21,6 +21,7 @@ public class MyLinkedList {
         }
     }
 
+    synchronized
     public void addLast(int value){
         Node n=new Node(value);
         if (tail==null) {
@@ -34,6 +35,7 @@ public class MyLinkedList {
         }
     }
 
+    synchronized
     public void addAtIndex(int index, int value) throws MyLinkedListException {
         // index=0 means first item in the list
         // index=1 means second item in the list - and so on
@@ -69,10 +71,10 @@ public class MyLinkedList {
         }
     }
 
-    synchronized
+//    synchronized
     public void removeLast() throws MyLinkedListException {
         if (isEmpty()) throw new MyLinkedListException("List is empty");
-        System.out.println("Removing "+ tail.elm);
+        System.out.println("Removing "+ tail.elm);  // Added for testing
         if (size()==1) {
             head=null;
             tail=null;
@@ -83,6 +85,7 @@ public class MyLinkedList {
         }
     }
 
+    synchronized
     public void removeAtIndex(int index) throws MyLinkedListException {
         // index=0 means first item in the list
         // index=1 means second item in the list - and so on
@@ -102,7 +105,7 @@ public class MyLinkedList {
         }
     }
 
-//    synchronized
+    synchronized
     public int get(int index) throws MyLinkedListException {
         // index=0 means first item in the list
         // index=1 means second item in the list - and so on
@@ -113,10 +116,12 @@ public class MyLinkedList {
         return it.elm;
     }
 
+    synchronized
     public boolean isEmpty(){
         return (head==null);
     }
 
+    synchronized
     public int size(){
         int result=0;
         Node n=head;
@@ -127,6 +132,7 @@ public class MyLinkedList {
         return result;
     }
 
+    synchronized
     public String toString(){
         String result="[";
         Node n=head;

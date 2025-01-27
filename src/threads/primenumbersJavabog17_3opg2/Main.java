@@ -6,14 +6,16 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    static boolean stop = false;    // Signal from main() to SieveOfEratosthenes to stop
-    static int maxPrime=0;          // Number of tested integers sent from SieveOfEratosthenes to main()
+    // Signal from main() to SieveOfEratosthenes to stop
+    static boolean stop = false;
+    // Number of tested integers sent from SieveOfEratosthenes to main()
+    static int maxPrime=0;
 
     public static void main(String[] args) throws InterruptedException {
         int maxNumbers = 10000;
         boolean[] isPrime = new boolean[maxNumbers+1];
         Arrays.fill(isPrime, true);
-        isPrime[0] = isPrime[1] = false; // 0 and 1 are not prime numbers
+        isPrime[0] = isPrime[1] = false; // 0 and 1 aren't prime numbers
 
         SieveOfEratosthenes sieve=new SieveOfEratosthenes(maxNumbers, isPrime);
         sieve.start();
@@ -49,7 +51,8 @@ class SieveOfEratosthenes extends Thread {
             }
             System.out.println(i);
             Main.maxPrime=i;
-            try { Thread.sleep(1000); } catch (InterruptedException e) {}
+            try { Thread.sleep(1000); }
+            catch (InterruptedException e) {}
             if (Main.stop) break;
         }
         System.out.println("SieveOfEratosthenes is done");

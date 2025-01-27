@@ -1,10 +1,11 @@
-package threads.myLinkedList;
+package threads.procucerConsumer;
 // Producer/Consumer problem.
 // MyLinkedList class is used as a stack
 // main() thread is the producer and Class Consumer is consumer
-// The program will crash wit more than one consumer because they will
+// The program will crash with more than one consumer because they will
 // both modify the head Node in the MyLinkedList class
 // The problem is solved with synchronized on the add and remove methods
+// in class MyLinkedList
 // Bjørn Christensen 30/12-2024
 
 public class Main {

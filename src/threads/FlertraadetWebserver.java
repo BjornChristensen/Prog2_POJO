@@ -10,7 +10,6 @@ public class FlertraadetWebserver
     {
         try {
             ServerSocket serversocket = new ServerSocket(8001);
-
             while (true)
             {
                 Socket forbindelse = serversocket.accept();
@@ -26,7 +25,6 @@ public class FlertraadetWebserver
 class Anmodning implements Runnable
 {
     private Socket forbindelse;
-
     Anmodning(Socket forbindelse)
     {
         this.forbindelse = forbindelse;
@@ -35,8 +33,8 @@ class Anmodning implements Runnable
     public void run()
     {
         try {
-            PrintWriter ud = new PrintWriter(forbindelse.getOutputStream());
-            BufferedReader ind = new BufferedReader(
+            PrintWriter ud=new PrintWriter(forbindelse.getOutputStream());
+            BufferedReader ind=new BufferedReader(
                     new InputStreamReader(forbindelse.getInputStream()));
 
             String anmodning = ind.readLine();
@@ -47,11 +45,11 @@ class Anmodning implements Runnable
             ud.println("<html><head><title>Svar</title></head>");
             ud.println("<body><h1>Svar</h1>");
             ud.println("Tænker over "+anmodning+"<br>");
-            for (int i=0; i<100; i++)
+            for (int i=0; i<10; i++)
             {
-                ud.print(".<br>");
+                ud.print(anmodning+".<br>");
                 ud.flush();
-                Thread.sleep(100);
+                Thread.sleep(1000);
             }
             ud.println("Nu har jeg tænkt færdig!</body></html>");
             ud.flush();
