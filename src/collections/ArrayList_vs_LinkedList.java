@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class ArrayList_vs_LinkedList {
-    static int Max=100000;
-    /*
+    static int Max=1000000;
+/*
     public static void main(String[] args) {
         System.out.println("ArrayList_vs_LinkedList");
         System.out.println("ArrayList.addFirst: "+testAddFirst(new ArrayList<Integer>()));
         System.out.println("LinkedList.addFirst: "+testAddFirst(new LinkedList<Integer>()));
         System.out.println("ArrayList.addLast: "+testAddLast(new ArrayList<Integer>()));
-        System.out.println("LinkedList.addFirst: "+testAddLast(new LinkedList<Integer>()));
+        System.out.println("LinkedList.addLast: "+testAddLast(new LinkedList<Integer>()));
         System.out.println("ArrayList.get: "+testGet(new ArrayList<Integer>()));
         System.out.println("LinkedList.get: "+testGet(new LinkedList<Integer>()));
     }
@@ -37,6 +37,6 @@ public class ArrayList_vs_LinkedList {
         double stop=System.currentTimeMillis();
         return stop-start;
     }
+*/
 
-     */
 }
