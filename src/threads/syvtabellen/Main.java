@@ -19,6 +19,7 @@ class Syvtabellen extends Thread {
         while (!Main.stop){
             for (int i=1; i<=10; i++){
                 System.out.print(i*7+" ");
+//                System.out.flush();
             }
             System.out.println();
         }
