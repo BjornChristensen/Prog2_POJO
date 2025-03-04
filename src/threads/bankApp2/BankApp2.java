@@ -1,4 +1,4 @@
-package threads.bankapp4;
+package threads.bankApp2;
 // BankApp2 - Liveprogramming.
 // Demo af klasser, objekter, constructor, toString, ArrayList,LocalDate
 // Demo af static
