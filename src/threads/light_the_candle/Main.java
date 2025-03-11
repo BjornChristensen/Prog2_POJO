@@ -12,6 +12,8 @@ public class Main {
     System.out.println("main started");
     res[0]=new Resource("candle");
     res[1]=new Resource("lighter");
+//    Student s1=new Student("Pia");
+//    Student s2=new Student("Per");
     Student s1=new FairStudent("Pia");
     Student s2=new FairStudent("Per");
     s1.start();
@@ -23,7 +25,7 @@ public class Main {
 }
 
 class Student extends Thread {
-  Random gen=new Random();
+  static Random gen=new Random();
   String name;
   final int MAX=10000;
 
