@@ -37,7 +37,5 @@ public class Ex1_ArrayList {
             list.add(tekst);
             return false;
         }
-
     }
-
 }

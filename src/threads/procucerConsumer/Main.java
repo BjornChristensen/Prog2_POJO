@@ -10,10 +10,9 @@ package threads.procucerConsumer;
 
 public class Main {
     static MyLinkedList list = new MyLinkedList();
- //   static ArrayList<Integer> list = new ArrayList<>();
     public static void main(String[] args) throws InterruptedException {
         int N=2;
-        System.out.println("Producer started");
+        System.out.println(" Main Producer started");
         Consumer[] users = new Consumer[N];
         for (int i = 0; i < N; i++) {
             users[i]=new Consumer();

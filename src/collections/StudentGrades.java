@@ -29,7 +29,7 @@ public class StudentGrades {
         grades.put("Bob", 88);
 
         // Remove a student
-        grades.remove("Bob");
+  //      grades.remove("Bob");
 
         // Check if "Bob" is there
         System.out.println(grades.containsKey("Bob"));
