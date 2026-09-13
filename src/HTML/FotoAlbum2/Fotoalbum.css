@@ -1,0 +1,35 @@
+h1 {
+    text-align: center;
+}
+
+#grid-head {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background-color: grey;
+    padding: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.box {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.box img {
+    width: 400px;
+    height: 300px;
+}
+
+.box a {
+    text-decoration: none;
+}
+
+.img-link {
+    background-color: lightblue;
+    padding: 10px;
+}
